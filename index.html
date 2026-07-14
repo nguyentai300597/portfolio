@@ -204,6 +204,68 @@
     .project p { color:var(--muted); margin:0; }
     .tech { margin-top:auto; padding-top:22px; color:#dbeafe; font-size:.85rem; font-weight:600; }
 
+
+
+    .visual-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+    .visual-card { overflow:hidden; }
+    .visual-stage {
+      min-height:300px; padding:26px; position:relative; display:grid; place-items:center;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(110,231,249,.28), transparent 34%),
+        radial-gradient(circle at 85% 80%, rgba(139,92,246,.28), transparent 36%),
+        linear-gradient(145deg, #101f35, #091321);
+      border-bottom:1px solid var(--line);
+    }
+    .visual-copy { padding:25px 26px 28px; }
+    .visual-copy h3 { margin:0 0 9px; font-size:1.35rem; }
+    .visual-copy p { margin:0; color:var(--muted); }
+    .visual-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+    .visual-tags span { padding:7px 10px; border-radius:999px; background:rgba(255,255,255,.06); border:1px solid var(--line); font-size:.78rem; font-weight:700; }
+
+    .phone {
+      width:150px; height:276px; border:7px solid #16243a; border-radius:32px;
+      background:#f8fafc; padding:12px; box-shadow:0 25px 55px rgba(0,0,0,.38); transform:rotate(-5deg);
+    }
+    .phone::before { content:""; display:block; width:58px; height:15px; border-radius:999px; background:#16243a; margin:-4px auto 12px; }
+    .phone-screen { height:226px; border-radius:19px; overflow:hidden; background:linear-gradient(180deg,#eef6ff,#fff); color:#102039; padding:15px 12px; }
+    .tf-icon { width:64px; height:64px; margin:12px auto 15px; border-radius:18px; background:linear-gradient(145deg,#5cc8ff,#1379e8); position:relative; box-shadow:0 12px 25px rgba(19,121,232,.3); }
+    .tf-icon::before,.tf-icon::after { content:""; position:absolute; inset:14px; border:3px solid white; border-radius:50%; }
+    .tf-icon::after { inset:24px; background:white; border:0; }
+    .screen-title { text-align:center; font-weight:800; font-size:.94rem; }
+    .screen-sub { text-align:center; color:#64748b; font-size:.64rem; margin-top:4px; }
+    .progress { height:7px; background:#dbeafe; border-radius:99px; margin-top:16px; overflow:hidden; }
+    .progress i { display:block; height:100%; width:78%; background:linear-gradient(90deg,#31a8ff,#7467ff); border-radius:inherit; }
+    .build-row { display:flex; justify-content:space-between; font-size:.62rem; color:#475569; margin-top:10px; }
+
+    .release-steps { position:absolute; right:28px; top:42px; display:grid; gap:10px; }
+    .release-step { width:135px; padding:11px 12px; border-radius:13px; background:rgba(7,17,31,.82); border:1px solid rgba(255,255,255,.14); box-shadow:0 12px 30px rgba(0,0,0,.2); }
+    .release-step b { display:block; font-size:.76rem; }
+    .release-step small { color:var(--muted); }
+
+    .dashboard { width:min(360px,100%); padding:18px; border-radius:22px; background:rgba(5,13,24,.82); border:1px solid rgba(255,255,255,.14); box-shadow:0 25px 55px rgba(0,0,0,.35); }
+    .dash-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+    .dash-head strong { font-size:.9rem; }
+    .live { color:#86efac; font-size:.72rem; }
+    .metric-row { display:grid; grid-template-columns:repeat(3,1fr); gap:9px; }
+    .metric { padding:12px; border-radius:13px; background:rgba(255,255,255,.055); }
+    .metric b { display:block; font-size:1.15rem; }
+    .metric span { color:var(--muted); font-size:.62rem; }
+    .chart { height:105px; margin-top:13px; border-radius:15px; position:relative; overflow:hidden; background:linear-gradient(180deg,rgba(110,231,249,.13),rgba(110,231,249,.01)); }
+    .chart svg { width:100%; height:100%; }
+
+    .iot-scene { width:min(390px,100%); display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .device-panel,.sensor-panel { padding:19px; border-radius:20px; background:rgba(5,13,24,.82); border:1px solid rgba(255,255,255,.14); }
+    .power { width:68px; height:68px; margin:18px auto; border-radius:50%; display:grid; place-items:center; font-size:1.7rem; background:rgba(52,211,153,.16); border:1px solid rgba(52,211,153,.42); color:#86efac; box-shadow:0 0 35px rgba(52,211,153,.16); }
+    .sensor-value { font:700 2rem "Space Grotesk"; margin-top:18px; }
+    .signal { display:flex; align-items:end; gap:3px; height:25px; margin-top:19px; }
+    .signal i { width:6px; background:#6ee7f9; border-radius:4px; }
+    .signal i:nth-child(1){height:7px}.signal i:nth-child(2){height:12px}.signal i:nth-child(3){height:18px}.signal i:nth-child(4){height:24px}
+
+    .payment-flow { width:min(390px,100%); display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; }
+    .flow-node { width:102px; min-height:92px; padding:14px 10px; display:grid; place-items:center; text-align:center; border-radius:18px; background:rgba(5,13,24,.84); border:1px solid rgba(255,255,255,.15); font-weight:800; font-size:.78rem; }
+    .flow-node em { display:block; font-style:normal; font-size:1.3rem; margin-bottom:5px; }
+    .flow-arrow { color:var(--primary); font-size:1.45rem; font-weight:800; }
+
     .education { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
     .edu-card { padding:28px; }
     .edu-card h3 { margin:0 0 8px; }
@@ -215,6 +277,7 @@
       .hero { grid-template-columns:1fr; padding-top:55px; }
       .stats { grid-template-columns:repeat(2,1fr); }
       .project-grid { grid-template-columns:1fr; }
+      .visual-grid { grid-template-columns:1fr; }
       .education { grid-template-columns:1fr; }
       .section-title { display:block; }
       .section-title p { margin-top:12px; }
@@ -228,6 +291,10 @@
       .job-header { display:block; }
       .period { display:inline-block; margin-top:12px; }
       .actions .btn { width:100%; }
+      .release-steps { position:static; margin-top:18px; width:100%; }
+      .release-step { width:100%; }
+      .visual-stage { min-height:270px; }
+      .iot-scene { grid-template-columns:1fr; }
     }
 
     @media print {
@@ -250,6 +317,7 @@
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
+        <a href="#visuals">Visuals</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
@@ -301,6 +369,91 @@
       <div class="section-title"><h2>Technical skills</h2><p>A practical toolkit for building, integrating, shipping and maintaining modern mobile products.</p></div>
       <div class="skills">
         <span class="skill">Flutter</span><span class="skill">Dart</span><span class="skill">Kotlin</span><span class="skill">React Native</span><span class="skill">Node.js</span><span class="skill">FastAPI</span><span class="skill">Go</span><span class="skill">PostgreSQL</span><span class="skill">Redis</span><span class="skill">RabbitMQ</span><span class="skill">WebSocket</span><span class="skill">MQTT</span><span class="skill">Firebase Analytics</span><span class="skill">Firebase Remote Config</span><span class="skill">Firebase Cloud Messaging</span><span class="skill">RESTful API</span><span class="skill">VNPay SDK</span><span class="skill">NFC</span><span class="skill">CI/CD</span><span class="skill">Jenkins</span><span class="skill">Git / GitHub</span><span class="skill">Postman</span><span class="skill">Figma</span><span class="skill">App Store / Google Play</span>
+      </div>
+    </section>
+
+
+
+    <section id="visuals">
+      <div class="section-title"><h2>How I build & ship apps</h2><p>Visual highlights of the tools and workflows I have used in real mobile projects.</p></div>
+      <div class="visual-grid">
+        <article class="glass visual-card">
+          <div class="visual-stage">
+            <div class="phone" aria-label="TestFlight build preview illustration">
+              <div class="phone-screen">
+                <div class="tf-icon"></div>
+                <div class="screen-title">TestFlight Build</div>
+                <div class="screen-sub">Version 1.1.1 · Ready to test</div>
+                <div class="progress"><i></i></div>
+                <div class="build-row"><span>Processing</span><span>78%</span></div>
+              </div>
+            </div>
+            <div class="release-steps">
+              <div class="release-step"><b>01 · Build</b><small>Flutter release</small></div>
+              <div class="release-step"><b>02 · Upload</b><small>App Store Connect</small></div>
+              <div class="release-step"><b>03 · Test</b><small>TestFlight QA</small></div>
+            </div>
+          </div>
+          <div class="visual-copy">
+            <h3>TestFlight & app release</h3>
+            <p>Prepared production builds, uploaded iOS versions, managed TestFlight testing and supported App Store release workflows.</p>
+            <div class="visual-tags"><span>TestFlight</span><span>App Store Connect</span><span>Flutter iOS</span><span>Release QA</span></div>
+          </div>
+        </article>
+
+        <article class="glass visual-card">
+          <div class="visual-stage">
+            <div class="dashboard">
+              <div class="dash-head"><strong>Firebase Analytics</strong><span class="live">● LIVE</span></div>
+              <div class="metric-row">
+                <div class="metric"><b>8.4K</b><span>Active users</span></div>
+                <div class="metric"><b>62%</b><span>Engagement</span></div>
+                <div class="metric"><b>4.8</b><span>Events / user</span></div>
+              </div>
+              <div class="chart">
+                <svg viewBox="0 0 360 110" preserveAspectRatio="none" aria-label="Analytics line chart">
+                  <polyline points="0,88 38,74 78,80 115,54 150,62 190,31 225,44 265,20 305,34 360,10" fill="none" stroke="#6ee7f9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="visual-copy">
+            <h3>Firebase product intelligence</h3>
+            <p>Used Analytics and Remote Config to understand user journeys, control feature toggles and update app behavior without a new release.</p>
+            <div class="visual-tags"><span>Analytics</span><span>Remote Config</span><span>FCM</span><span>Feature flags</span></div>
+          </div>
+        </article>
+
+        <article class="glass visual-card">
+          <div class="visual-stage">
+            <div class="iot-scene">
+              <div class="device-panel"><strong>Smart device</strong><div class="power">⏻</div><small style="color:var(--muted)">Connected via MQTT</small></div>
+              <div class="sensor-panel"><strong>Temperature</strong><div class="sensor-value">26.4°C</div><small style="color:var(--muted)">Updated in real time</small><div class="signal"><i></i><i></i><i></i><i></i></div></div>
+            </div>
+          </div>
+          <div class="visual-copy">
+            <h3>IoT monitoring & control</h3>
+            <p>Built mobile controls for connected devices, sensor monitoring, schedules, timers and device activity using MQTT and ESP32.</p>
+            <div class="visual-tags"><span>MQTT</span><span>ESP32</span><span>Real-time data</span><span>Device control</span></div>
+          </div>
+        </article>
+
+        <article class="glass visual-card">
+          <div class="visual-stage">
+            <div class="payment-flow">
+              <div class="flow-node"><div><em>📱</em>Flutter App</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-node"><div><em>💳</em>VNPay SDK</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-node"><div><em>✓</em>Payment Result</div></div>
+            </div>
+          </div>
+          <div class="visual-copy">
+            <h3>Native SDK & payment integration</h3>
+            <p>Integrated VNPay, handled native Android configuration, callback states and secure mobile-to-payment flows.</p>
+            <div class="visual-tags"><span>VNPay</span><span>Kotlin</span><span>Deep link</span><span>Native bridge</span></div>
+          </div>
+        </article>
       </div>
     </section>
 
