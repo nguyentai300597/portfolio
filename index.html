@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nguyen Duc Tai - Mobile Developer portfolio and resume" />
+  <title>Nguyễn Đức Tài | Mobile Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0d1a2c;
+      --card: rgba(255,255,255,.075);
+      --card-strong: rgba(255,255,255,.11);
+      --text: #f5f8ff;
+      --muted: #aab7cc;
+      --line: rgba(255,255,255,.12);
+      --primary: #6ee7f9;
+      --secondary: #8b5cf6;
+      --accent: #34d399;
+      --shadow: 0 24px 70px rgba(0,0,0,.35);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 8%, rgba(110,231,249,.17), transparent 30%),
+        radial-gradient(circle at 85% 18%, rgba(139,92,246,.18), transparent 34%),
+        linear-gradient(145deg, #050a13 0%, #091526 45%, #07111f 100%);
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .22;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+
+    a { color: inherit; }
+    .container { width: min(1180px, calc(100% - 32px)); margin: auto; }
+
+    .nav {
+      position: sticky;
+      top: 14px;
+      z-index: 20;
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      background: rgba(7,17,31,.72);
+      backdrop-filter: blur(18px);
+      border-radius: 18px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.18);
+    }
+
+    .nav-inner {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 10px 16px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; text-decoration: none; }
+    .brand-mark {
+      width: 38px; height: 38px; border-radius: 12px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #06111f;
+      box-shadow: 0 8px 24px rgba(110,231,249,.22);
+    }
+    .nav-links { display: flex; gap: 22px; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: .92rem; font-weight: 600; }
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.45fr .75fr;
+      gap: 26px;
+      align-items: stretch;
+      padding: 82px 0 40px;
+    }
+
+    .glass {
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.045));
+      backdrop-filter: blur(16px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main { padding: clamp(30px, 5vw, 60px); position: relative; overflow: hidden; }
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      width: 280px; height: 280px;
+      right: -100px; bottom: -125px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(110,231,249,.28), transparent 70%);
+    }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(110,231,249,.25);
+      background: rgba(110,231,249,.08);
+      color: #b9f5ff;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px rgba(52,211,153,.12); }
+
+    h1, h2, h3 { font-family: "Space Grotesk", Inter, sans-serif; line-height: 1.12; }
+    h1 { font-size: clamp(3rem, 7vw, 6.5rem); margin: 24px 0 10px; letter-spacing: -.055em; }
+    .gradient-text { background: linear-gradient(90deg, #fff, var(--primary) 48%, #c4b5fd); -webkit-background-clip: text; color: transparent; }
+    .role { color: #cbd5e1; font-size: clamp(1.15rem, 2vw, 1.45rem); font-weight: 600; margin-bottom: 22px; }
+    .intro { color: var(--muted); font-size: 1.04rem; max-width: 750px; }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      min-height: 48px; padding: 0 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid var(--line);
+      transition: .22s ease;
+    }
+    .btn-primary { background: linear-gradient(135deg, var(--primary), #7dd3fc); color: #05111f; border: 0; }
+    .btn-secondary { background: rgba(255,255,255,.05); }
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
+
+    .profile-card { padding: 30px; display: flex; flex-direction: column; justify-content: space-between; }
+    .avatar {
+      width: 112px; height: 112px; border-radius: 30px;
+      display: grid; place-items: center;
+      font-family: "Space Grotesk"; font-size: 2.2rem; font-weight: 800;
+      background: linear-gradient(145deg, rgba(110,231,249,.95), rgba(139,92,246,.9));
+      color: #07111f;
+      box-shadow: 0 18px 45px rgba(110,231,249,.22);
+      margin-bottom: 26px;
+    }
+
+    .contact-list { display: grid; gap: 14px; margin-top: 18px; }
+    .contact-item { display: grid; grid-template-columns: 38px 1fr; gap: 12px; align-items: center; }
+    .contact-icon { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 11px; background: rgba(255,255,255,.07); color: var(--primary); }
+    .contact-label { color: var(--muted); font-size: .78rem; }
+    .contact-value { font-size: .91rem; word-break: break-word; text-decoration: none; }
+
+    section { padding: 42px 0; }
+    .section-title { display: flex; justify-content: space-between; gap: 24px; align-items: end; margin-bottom: 24px; }
+    .section-title h2 { font-size: clamp(2rem, 4vw, 3.25rem); margin: 0; letter-spacing: -.045em; }
+    .section-title p { margin: 0; color: var(--muted); max-width: 560px; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .stat { padding: 24px; }
+    .stat strong { display: block; font-family: "Space Grotesk"; font-size: 2rem; }
+    .stat span { color: var(--muted); font-size: .9rem; }
+
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skill {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.055);
+      color: #dce7f7;
+      font-weight: 600;
+      font-size: .9rem;
+    }
+
+    .timeline { display: grid; gap: 20px; }
+    .job { padding: clamp(24px, 4vw, 38px); position: relative; overflow: hidden; }
+    .job::before { content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background: linear-gradient(var(--primary), var(--secondary)); }
+    .job-header { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; margin-bottom:16px; }
+    .job h3 { margin:0 0 7px; font-size:1.35rem; }
+    .company { color: var(--primary); font-weight:700; }
+    .period { color:#dbeafe; background:rgba(139,92,246,.13); border:1px solid rgba(139,92,246,.25); border-radius:999px; padding:7px 11px; white-space:nowrap; font-size:.82rem; font-weight:700; }
+    .meta { color: var(--muted); margin-bottom: 13px; font-size:.92rem; }
+    .job ul { margin: 12px 0 0; padding-left: 20px; color:#c5d0e2; }
+    .job li + li { margin-top: 8px; }
+
+    .project-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .project { padding:26px; min-height:245px; display:flex; flex-direction:column; }
+    .project-num { color:var(--primary); font-weight:800; letter-spacing:.12em; font-size:.78rem; }
+    .project h3 { font-size:1.35rem; margin:14px 0 10px; }
+    .project p { color:var(--muted); margin:0; }
+    .tech { margin-top:auto; padding-top:22px; color:#dbeafe; font-size:.85rem; font-weight:600; }
+
+    .education { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .edu-card { padding:28px; }
+    .edu-card h3 { margin:0 0 8px; }
+    .edu-card p { margin:0; color:var(--muted); }
+
+    footer { padding: 44px 0 70px; color: var(--muted); text-align:center; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns:1fr; padding-top:55px; }
+      .stats { grid-template-columns:repeat(2,1fr); }
+      .project-grid { grid-template-columns:1fr; }
+      .education { grid-template-columns:1fr; }
+      .section-title { display:block; }
+      .section-title p { margin-top:12px; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display:none; }
+      h1 { font-size: 3.25rem; }
+      .hero-main, .profile-card { padding:24px; }
+      .stats { grid-template-columns:1fr 1fr; }
+      .job-header { display:block; }
+      .period { display:inline-block; margin-top:12px; }
+      .actions .btn { width:100%; }
+    }
+
+    @media print {
+      body { background:#fff; color:#111827; }
+      body::before, .nav { display:none; }
+      .glass { background:#fff; border:1px solid #dbe2ea; box-shadow:none; }
+      .hero { padding-top:20px; }
+      .gradient-text { color:#111827; -webkit-text-fill-color:#111827; }
+      .role, .intro, .section-title p, .meta, .job ul, .project p, .edu-card p, footer, .stat span, .contact-label { color:#475569; }
+      .skill { color:#1e293b; border-color:#cbd5e1; }
+      .project-grid { grid-template-columns:repeat(3,1fr); }
+      a { text-decoration:none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav container">
+    <div class="nav-inner">
+      <a class="brand" href="#top"><span class="brand-mark">T</span><span>Nguyễn Đức Tài</span></a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero" id="about">
+      <article class="glass hero-main">
+        <span class="eyebrow"><span class="dot"></span> Available for mobile opportunities</span>
+        <h1><span class="gradient-text">Nguyễn Đức Tài</span></h1>
+        <div class="role">Mobile Developer · Flutter · Kotlin · React Native</div>
+        <p class="intro">
+          Mobile developer with hands-on experience building travel, e-commerce, banking, IoT, social and real-time chat products. Strong in Flutter development, mobile UI/UX, API integration, payment SDKs, Firebase, WebSocket systems and scalable backend collaboration.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:nguyenductaiqn97@gmail.com">✉ Contact me</a>
+          <a class="btn btn-secondary" href="#experience">View experience ↓</a>
+          <button class="btn btn-secondary" onclick="window.print()">Print / Save PDF</button>
+        </div>
+      </article>
+
+      <aside class="glass profile-card" id="contact">
+        <div>
+          <div class="avatar">NĐT</div>
+          <h2 style="margin:0;font-size:1.65rem">Contact</h2>
+          <div class="contact-list">
+            <div class="contact-item"><div class="contact-icon">@</div><div><div class="contact-label">Email</div><a class="contact-value" href="mailto:nguyenductaiqn97@gmail.com">nguyenductaiqn97@gmail.com</a></div></div>
+            <div class="contact-item"><div class="contact-icon">☎</div><div><div class="contact-label">Phone</div><a class="contact-value" href="tel:+84924884435">0924 884 435</a></div></div>
+            <div class="contact-item"><div class="contact-icon">⌖</div><div><div class="contact-label">Location</div><div class="contact-value">District 8, Ho Chi Minh City</div></div></div>
+            <div class="contact-item"><div class="contact-icon">◷</div><div><div class="contact-label">Birthday</div><div class="contact-value">04 July 1997</div></div></div>
+            <div class="contact-item"><div class="contact-icon">S</div><div><div class="contact-label">Skype</div><a class="contact-value" target="_blank" rel="noreferrer" href="https://join.skype.com/invite/U8ZGGYhMkgqI">Connect on Skype</a></div></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section>
+      <div class="stats">
+        <div class="glass stat"><strong>6+ yrs</strong><span>Software development journey</span></div>
+        <div class="glass stat"><strong>Flutter</strong><span>Primary mobile framework</span></div>
+        <div class="glass stat"><strong>10+</strong><span>Products and modules delivered</span></div>
+        <div class="glass stat"><strong>Full cycle</strong><span>UI, API, release and maintenance</span></div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-title"><h2>Technical skills</h2><p>A practical toolkit for building, integrating, shipping and maintaining modern mobile products.</p></div>
+      <div class="skills">
+        <span class="skill">Flutter</span><span class="skill">Dart</span><span class="skill">Kotlin</span><span class="skill">React Native</span><span class="skill">Node.js</span><span class="skill">FastAPI</span><span class="skill">Go</span><span class="skill">PostgreSQL</span><span class="skill">Redis</span><span class="skill">RabbitMQ</span><span class="skill">WebSocket</span><span class="skill">MQTT</span><span class="skill">Firebase Analytics</span><span class="skill">Firebase Remote Config</span><span class="skill">Firebase Cloud Messaging</span><span class="skill">RESTful API</span><span class="skill">VNPay SDK</span><span class="skill">NFC</span><span class="skill">CI/CD</span><span class="skill">Jenkins</span><span class="skill">Git / GitHub</span><span class="skill">Postman</span><span class="skill">Figma</span><span class="skill">App Store / Google Play</span>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-title"><h2>Experience</h2><p>Selected professional experience across travel, chat, e-commerce, IoT, banking, social networking and mobile products.</p></div>
+      <div class="timeline">
+        <article class="glass job">
+          <div class="job-header"><div><h3>Mobile Developer — Flutter</h3><div class="company">TNI-Tech</div></div><span class="period">2025 — 2026</span></div>
+          <div class="meta">Travel and real-time chat products · Dart, Node.js, FastAPI, PostgreSQL, Redis, RabbitMQ, Firebase</div>
+          <ul>
+            <li>Built location-aware travel features using real-time GPS tracking and geofencing to trigger nearby attraction notifications.</li>
+            <li>Integrated Firebase Remote Config for feature toggles and dynamic discovery radius updates without releasing a new app version.</li>
+            <li>Implemented Firebase Analytics to understand user journeys and improve destination recommendations.</li>
+            <li>Designed an end-to-end chat architecture with mobile UI, REST APIs, WebSockets, Redis Pub/Sub and asynchronous RabbitMQ processing.</li>
+            <li>Implemented sent, delivered and read message states while keeping background work outside the main request flow.</li>
+          </ul>
+        </article>
+
+        <article class="glass job">
+          <div class="job-header"><div><h3>Mobile Developer — Flutter</h3><div class="company">Citgroup</div></div><span class="period">Nov 2024 — Sep 2025</span></div>
+          <div class="meta">E-commerce and IoT · Flutter, MQTT, Firebase Cloud Messaging, ESP32, REST APIs</div>
+          <ul>
+            <li>Developed product variants, shopping cart, order placement, order tracking, promotions and group ordering.</li>
+            <li>Built real-time buyer–seller chat and push notification flows for orders and updates.</li>
+            <li>Implemented IoT device controls, sensor monitoring, schedules, timers and device activity history.</li>
+          </ul>
+        </article>
+
+        <article class="glass job">
+          <div class="job-header"><div><h3>Mobile Developer — Flutter</h3><div class="company">Live Channel</div></div><span class="period">May 2023 — Oct 2024</span></div>
+          <div class="meta">Sitdown, Golf and Pocket products · Dart, Kotlin, Jenkins, TestFlight, Git</div>
+          <ul>
+            <li>Refactored application code to improve performance and maintainability.</li>
+            <li>Integrated VNPay SDK and handled native Android SDK setup.</li>
+            <li>Developed NFC scanning, friend connection, card creation, login and match-listing features.</li>
+            <li>Designed mobile UI/UX in Figma and collaborated in a two-person development team.</li>
+          </ul>
+        </article>
+
+        <article class="glass job">
+          <div class="job-header"><div><h3>Mobile Developer — Flutter</h3><div class="company">Hahalolo</div></div><span class="period">Aug 2022 — May 2023</span></div>
+          <div class="meta">Social and game modules · Flutter, WebSocket, Jira, Git · Team size: 10–15</div>
+          <ul>
+            <li>Developed UI/UX for game experiences and resolved cross-module issues.</li>
+            <li>Built a real-time game module using WebSockets.</li>
+            <li>Worked with task management and source control workflows in a larger product team.</li>
+          </ul>
+        </article>
+
+        <article class="glass job">
+          <div class="job-header"><div><h3>Mobile Developer — Flutter</h3><div class="company">KienlongBank</div></div><span class="period">Dec 2020 — Nov 2021</span></div>
+          <div class="meta">Banking application · Flutter, BLoC, REST APIs, Git, SVN · Team size: 4</div>
+          <ul>
+            <li>Built and improved mobile UI/UX for banking workflows.</li>
+            <li>Integrated transaction, money transfer, bank listing and transaction-history APIs.</li>
+            <li>Developed a Share Bill feature using deep links and supported secure card-loading flows.</li>
+            <li>Collaborated closely with testers and fixed functional and UI issues.</li>
+          </ul>
+        </article>
+
+        <article class="glass job">
+          <div class="job-header"><div><h3>Earlier Experience</h3><div class="company">TopMedia · Billionaire Group</div></div><span class="period">2019</span></div>
+          <div class="meta">PHP Laravel APIs and Flutter mobile development</div>
+          <ul>
+            <li>Developed RESTful APIs and CRUD operations using PHP and Laravel.</li>
+            <li>Tested APIs with Postman and collaborated on database and mobile UI implementation.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-title"><h2>Selected strengths</h2><p>Capabilities demonstrated repeatedly across commercial products.</p></div>
+      <div class="project-grid">
+        <article class="glass project"><span class="project-num">01 · REAL-TIME</span><h3>Scalable chat systems</h3><p>Sub-second messaging, WebSocket delivery, Redis Pub/Sub synchronization and RabbitMQ background processing.</p><div class="tech">WebSocket · Redis · RabbitMQ · PostgreSQL</div></article>
+        <article class="glass project"><span class="project-num">02 · MOBILE</span><h3>Production app delivery</h3><p>Feature development, native SDK integration, CI/CD, TestFlight, Google Play and long-term app maintenance.</p><div class="tech">Flutter · Kotlin · Jenkins · Git</div></article>
+        <article class="glass project"><span class="project-num">03 · CONNECTED</span><h3>Location and IoT</h3><p>Geofencing, GPS tracking, device control, MQTT communication, sensor monitoring and remote configuration.</p><div class="tech">GPS · MQTT · ESP32 · Firebase</div></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title"><h2>Education & freelance</h2></div>
+      <div class="education">
+        <article class="glass edu-card"><h3>Saigon Technology University</h3><p>Information Technology · 2015 — 2020</p></article>
+        <article class="glass edu-card"><h3>Freelance Mobile Developer</h3><p>App deployment to Google Play and App Store, bug fixing and product support · 2024</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">© <span id="year"></span> Nguyễn Đức Tài · Mobile Developer</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
